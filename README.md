@@ -1,4 +1,4 @@
-# examen
+# GBI6_ExamenParcial1
 
 # Datos Personales:
 Nombre: Stefani Juleidy Cartagena Aragón
@@ -24,4 +24,12 @@ Lápiz y entrada táctil:	La entrada táctil o manuscrita no está disponible pa
 
 # Programas Utilizados:
 
+Git Bash
+
+Jupyterlab
+
+GitHub
+
 # Explicación de la data utilizada:
+
+
