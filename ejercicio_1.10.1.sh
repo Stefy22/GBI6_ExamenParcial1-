@@ -1,160 +1,286 @@
-###################################################
-# Exercise 1.10.1 on Marra & DeWoody (2014)
-###################################################
-# 1) Change directory to the /CSB/unix/sandbox
+# Stefani Cartagena
 
-# If you saved the directory CSB in your home
-# directory, as suggested, you should be able
-# to go to the sandbox by typing
+# Ejercicio 1.10.1 sobre Marra & DeWoody (2014)
+
+# 1) Cambie el directorio a /CSB/unix/sandbox
+
+# si guardamos nuestro directorio CSB en nuestro ordenador, deberia poder ir a la caja de
+# sandbox.
 
 cd ~/CSB/unix/sandbox
 
-###################################################
-# 2) What is the size of the file
+---------------------------------------------
+
+# 2) ¿Cuál es el tamaño del archivo?
 # Marra2014_data.fasta?
 
-# The option -l of the command ls also reports
-# the size of the file. Adding the flag -h
-# makes it "human-readable" (i.e., using K, M,
-# instead of printing the number of bytes). 
+# La opción -l del comando ls también informa
+# el tamaño del archivo. Agregar la bandera -h
+# lo hace "legible por humanos" (es decir, usando K, M,
+# en lugar de imprimir el número de bytes).
+
 
 ls -lh ../data/Marra2014_data.fasta
 
-# This should return 533K
+# Esto debería devolver 533K
 
-# Alternatively, the command du (disk usage) can
-# be used for a more compact output:
+# Alternativamente, el comando du (uso del disco) puede
+# ser usado para una salida más compacta:
 
-du -h ../data/Marra2014_data.fasta 
+du -h ../data/Marra2014_data.fasta
 
-###################################################
-# 3) Create a copy of Marra2014_data.fasta in the
-# sandbox and name it my_file.fasta
+------------------------------------------------------------
 
-# To copy a file, use the command cp
+# 3) Crear una copia de Marra2014_data.fasta en el
+# sandbox y asígnele el nombre my_file.fasta
+
+# Para copiar un archivo, use el comando cp
 
 cp ../data/Marra2014_data.fasta my_file.fasta
 
-# To make sure the copy went well, list the files
-# in the sandbox
-
+# Para asegurarse de que la copia salió bien, enumere los archivos
+# en la caja de sandbox
 ls
 
-###################################################
-# 4) How many contigs are classified as
-# isogroup00036?
+---------------------------------------------------------
 
-# To count the occurrences of a given string, use
-# grep with the option -c
+# 4) ¿Cuántos contigs se clasifican como
+# isogrupo00036?
 
-grep -c isogroup00036 my_file.fasta 
+# Para contar las ocurrencias de una cadena dada, use
+# grep con la opción -c
 
-# This should return 16
+grep -c isogroup00036 my_file.fasta
 
-# If you don't remember the -c option, you can use
-# a pipe:
+# Esto debería devolver 16
+
+# Si no recuerda la opción -c, puede usar
+# una pipa:
 
 grep isogroup00036 my_file.fasta | wc -l
 
-###################################################
-# 5) Replace the original "two-spaces" delimiter
-# with a comma.
+-----------------------------------------------------
 
-# In the file, the information on each contig
-# is separated by two spaces:
+# 5) Reemplace el delimitador original de "dos espacios"
+# con una coma.
+
+# En el archivo, la información de cada contig
+# está separado por dos espacios:
 # >contig00001  length=527  numreads=2  ...
 
-# We would like to obtain:
+# Nos gustaría obtener:
 # >contig00001,length=527,numreads=2,...
 
-# We can accomplish by using cat to print the
-# file, and substitute the spaces using the
-# command tr in combination with the option
-# -s (squeeze).
+# Podemos lograr usando cat para imprimir el
+# archivo, y sustituya los espacios usando el
+# comando tr en combinación con la opción
+# -s (apretar).
 
-# Before overwriting the file, let's make sure
-# we didn't make any mistake: pipe the result
-# to head to see the result.
+# Antes de sobrescribir el archivo, asegurémonos
+# no cometimos ningún error: canalizar el resultado
+# a la cabeza para ver el resultado.
+ls
+
+---------------------------------------------------------
+
+# 4) ¿Cuántos contigs se clasifican como
+# isogrupo00036?
+
+# Para contar las ocurrencias de una cadena dada, use
+# grep con la opción -c
+
+grep -c isogroup00036 my_file.fasta
+
+# Esto debería devolver 16
+
+# Si no recuerda la opción -c, puede usar
+# una pipa:
+
+grep isogroup00036 my_file.fasta | wc -l
+
+-----------------------------------------------------
+
+# 5) Reemplace el delimitador original de "dos espacios"
+# con una coma.
+
+# En el archivo, la información de cada contig
+# está separado por dos espacios:
+# >contig00001  length=527  numreads=2  ...
+
+# Nos gustaría obtener:
+# >contig00001,length=527,numreads=2,...
+
+# Podemos lograr usando cat para imprimir el
+# archivo, y sustituya los espacios usando el
+# comando tr en combinación con la opción
+# -s (apretar).
+
+# Antes de sobrescribir el archivo, asegurémonos
+# no cometimos ningún error: canalizar el resultado
+# a la cabeza para ver el resultado.
+
+ls
+
+---------------------------------------------------------
+
+# 4) ¿Cuántos contigs se clasifican como
+# isogrupo00036?
+
+# Para contar las ocurrencias de una cadena dada, use
+# grep con la opción -c
+
+grep -c isogroup00036 my_file.fasta
+
+# Esto debería devolver 16
+
+# Si no recuerda la opción -c, puede usar
+# una pipa:
+
+grep isogroup00036 my_file.fasta | wc -l
+
+-----------------------------------------------------
+
+# 5) Reemplace el delimitador original de "dos espacios"
+# con una coma.
+
+# En el archivo, la información de cada contig
+# está separado por dos espacios:
+# >contig00001  length=527  numreads=2  ...
+
+# Nos gustaría obtener:
+# >contig00001,length=527,numreads=2,...
+
+# Podemos lograr usando cat para imprimir el
+# archivo, y sustituya los espacios usando el
+# comando tr en combinación con la opción
+# -s (apretar).
+
+# Antes de sobrescribir el archivo, asegurémonos
+# no cometimos ningún error: canalizar el resultado
+# a la cabeza para ver el resultado.
+
+ls
+
+---------------------------------------------------------
+
+# 4) ¿Cuántos contigs se clasifican como
+# isogrupo00036?
+
+# Para contar las ocurrencias de una cadena dada, use
+# grep con la opción -c
+
+grep -c isogroup00036 my_file.fasta
+
+# Esto debería devolver 16
+
+# Si no recuerda la opción -c, puede usar
+# una pipa:
+
+grep isogroup00036 my_file.fasta | wc -l
+
+-----------------------------------------------------
+
+# 5) Reemplace el delimitador original de "dos espacios"
+# con una coma.
+
+# En el archivo, la información de cada contig
+# está separado por dos espacios:
+# >contig00001  length=527  numreads=2  ...
+
+# Nos gustaría obtener:
+# >contig00001,length=527,numreads=2,...
+
+# Podemos lograr usando cat para imprimir el
+# archivo, y sustituya los espacios usando el
+# comando tr en combinación con la opción
+# -s (apretar).
+
+# Antes de sobrescribir el archivo, asegurémonos
+# no cometimos ningún error: canalizar el resultado
+# a la cabeza para ver el resultado.
 
 cat my_file.fasta | tr -s ' ' ',' | head -n 3
 
-# This should return:
+# Esto debería devolver:
 
 #>contig00001,length=527,numreads=2,...
 #ATCCTAGCTACTCTGGAGACTGAGGATTGAAGTTC...
 #TTTACAATTAACCCACAAAAGGCTGTTACTGAAGG...
 
-# which is what we want.
+# que es lo que queremos.
 
-# Note that
+# Tenga en cuenta que
 
 # cat my_file.fasta | tr -s ' ' ',' > my_file.fasta
 
-# would not work in Linux (see http://goo.gl/KIYV2N)
+# no funcionaría en Linux
 
-# To avoid this problem, save in a temporary file
-# and then overwrite the file:
+# Para evitar este problema, guarde en un archivo temporal
+# y luego sobrescriba el archivo:
 
 cat my_file.fasta | tr -s ' ' ',' > my_file.tmp
 mv my_file.tmp my_file.fasta
 
-###################################################
-# 6) How many unique isogroups are in the file?
+---------------------------------------------------------------
+# 6) ¿Cuántos isogrupos únicos hay en el archivo?
 
-# We need to extract the isogroupXXXXX information
-# for each contig, sort them, and use uniq to
-# remove duplicates.
+# Necesitamos extraer la información del isogrupo XXXXX
+# para cada contig, ordenarlos y usar uniq para
+# eliminar duplicados.
 
-# First, using grep '>' my_file.fasta extracts
-# all the lines with contig information:
+# Primero, usando extractos grep '>' my_file.fasta
+# todas las líneas con información contig:
 
 grep '>' my_file.fasta | head -n 2
 # >contig00001,length=527,numreads=2,gene=isogroup00001,status=it_thresh
 # >contig00002,length=551,numreads=8,gene=isogroup00001,status=it_thresh
 
-# Now use cut to extract the 4th column
+# Ahora usa cortar para extraer la 4ta columna
 
 grep '>' my_file.fasta | cut -d ',' -f 4 | head -n 2
 #gene=isogroup00001
 #gene=isogroup00001
 
-# Finally, use sort | uniq | wc -l to count the
-# number of unique occurrences.
+# Finalmente, use ordenar  uniq | wc -l para contar el
+# número de ocurrencias únicas.
 
 grep '>' my_file.fasta | cut -d ',' -f 4 | sort | uniq | wc -l
 
-# The answer is 43
+# La respuesta es 43
 
-# Alternatively, one can use grep writing a more
-# complex "regular expression" (more on this later!):
+# Alternativamente, uno puede usar grep escribiendo un
+# "expresión regular" compleja
 
 grep -o 'isogroup[[:digit:]]\+' my_file.fasta
 
-# which means "print all the occurrences of the
-# string isogroup followed by one or more digits"
+# que significa "imprimir todas las ocurrencias del
+# isogrupo de cadena seguido de uno o más dígitos"
 
-# Then, just sort, remove duplicates and count:
+# Luego, simplemente clasifique, elimine los duplicados y cuente:
 
 grep -o 'isogroup[[:digit:]]\+' my_file.fasta | sort | uniq | wc -l
 
-###################################################
-# 7) Which contig has the highest number of reads
-# (numreads)? How many reads does it have?
+------------------------------------------------------------------------
 
-# We need to isolate the number of reads as well
-# as the contig names. We can use a combination
-# of grep and cut:
+# 7) ¿Qué contig tiene el mayor número de lecturas?
+# (número de lecturas)? ¿Cuántas lecturas tiene?
+
+# Necesitamos aislar el número de lecturas también
+# como los nombres de contig. Podemos usar una combinación
+# de grep y corte:
+
+
 grep '>' my_file.fasta | cut -d ',' -f 1,3 | head -n 3
 
 # >contig00001,numreads=2
 # >contig00002,numreads=8
 # >contig00003,numreads=2
 
-# Now we want to sort according to the number of
-# reads. However, the number of reads is part of
-# a more complex string. We can use -t '=' to
-# split according to the = sign, and then take
-# the second column (-k 2) to sort numerically (-n)
+# Ahora queremos ordenar según el número de
+# lee. Sin embargo, el número de lecturas es parte de
+# una cadena más compleja. Podemos usar -t '=' para
+# dividir según el signo =, y luego tomar
+# la segunda columna (-k 2) para ordenar numéricamente (-n)
 
 grep '>' my_file.fasta | cut -d ',' -f 1,3 | sort -t '=' -k 2 -n | head -n 5
 
@@ -164,11 +290,11 @@ grep '>' my_file.fasta | cut -d ',' -f 1,3 | sort -t '=' -k 2 -n | head -n 5
 # >contig00001,numreads=2
 # >contig00003,numreads=2
 
-# Using the flag -r we can sort in reverse order:
+# Usando la bandera -r podemos ordenar en orden inverso:
 
 grep '>' my_file.fasta | cut -d ',' -f 1,3 | sort -t '=' -k 2 -n -r | head -n 1
 
 # >contig00302,numreads=3330
 
-# Finding that contig 00302 has the highest
-# coverage, with 3330 reads.
+# Encontrar que el contig 00302 tiene el valor más alto
+# cobertura, con 3330 lecturas.
