@@ -1,21 +1,24 @@
-###################################################
-# Exercise 1.10.2 on Gesquiere et al. (2011)
-###################################################
-# 1) How many times were the levels of individuals
-# 3 and 27 recorded?
+# Stefani Cartagena
 
-# First, let's see the structure of the file:
+# Ejercicio 1.10.2 sobre Gesquiere et al. (2011)
 
-head -n 3 ../data/Gesquiere2011_data.csv 
+-----------------------------------------------------------
 
-# maleID	GC	T
-# 1	66.9	64.57
-# 1	51.09	35.57
+# 1) ¿Cuántas veces fueron los niveles de los individuos
+# 3 y 27 grabados?
 
-# We want to extract all the rows in which the 
-# first column is 3 (or 27) and count them.
+# Primero, veamos la estructura del archivo:
 
-# To extract only the first column, we can use cut
+head -n 3 ../data/Gesquiere2011_data.csv
+
+# maleID        GC      T
+# 1     66.9    64.57
+# 1     51.09   35.57
+
+# Necesitamos extraer todas las filas en las que
+# la primera columna es 3 (o 27) y contarlas.
+
+# Para extraer solo la primera columna, podemos usar cut
 
 cut -f 1 ../data/Gesquiere2011_data.csv | head -n 3
 
@@ -23,11 +26,11 @@ cut -f 1 ../data/Gesquiere2011_data.csv | head -n 3
 # 1
 # 1
 
-# Then we can pipe the results to grep -c to count
-# the number of occurrences (note the flag -w as
-# we want to match 3 but not 13 or 23):
+# Entonces podemos canalizar los resultados a grep -c para contar
+# el número de ocurrencias (tenga en cuenta la bandera -w como
+# queremos hacer coincidir 3 pero no 13 o 23):
 
-# maleID 3
+# identificación masculina 3
 
 cut -f 1 ../data/Gesquiere2011_data.csv | grep -c -w 3
 
@@ -39,32 +42,34 @@ cut -f 1 ../data/Gesquiere2011_data.csv | grep -c -w 27
 
 # 5
 
-###################################################
-# 2) Write a script taking as input the file name
-# and the ID of the individual, and returning the
-# number of records for that ID.
+-----------------------------------------------------------------
 
-# We just need to a) read the input from the command
-# line (using $1 for filename and $2 for ID), and
-# then run the commands above.
+# 2) Escriba un script tomando como entrada el nombre del archivo
+# y el DNI del individuo, y devolviendo el
+# número de registros para esa ID.
 
-# The script count_baboons.sh shows the solution
+# Solo necesitamos a) leer la entrada del comando
+# línea (usando $1 para nombre de archivo y $2 para ID), y
+# luego ejecute los comandos anteriores.
+
+# El script count_baboons.sh muestra la solución
 
 bash count_baboons.sh ../data/Gesquiere2011_data.csv 27
 
 # 5
 
-###################################################
-# 3) Write a script that returns the number of
-# times each individual was sampled.
+----------------------------------------------------------------------
 
-# This requires a) extracting all IDs and b) calling
-# the script above for each ID
+# 3) Escriba un script que devuelva el número de
+# veces que se tomaron muestras de cada individuo.
 
-# To get all unique IDs, we need to tail -n +2 the
-# file to remove the header, cut -f 1 to extract
-# the IDs, and then run through sort | uniq to
-# remove the duplicates:
+# Esto requiere a) extraer todos los ID
+# b) llamar el script de arriba para cada ID
+
+# Para obtener todas las identificaciones únicas, necesitamos cola -n +2 el
+# archivo para eliminar el encabezado, cortar -f 1 para extraer
+# los ID, y luego ejecute sort | único a
+# eliminar los duplicados:
 
 tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq
 
@@ -74,21 +79,20 @@ tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq
 # 4
 # ...
 
-# To store this list in a script, you can use
+# Para almacenar esta lista en un script, puede usar
 
 myIDS=`tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq`
 
-# And now use a "loop" to cycle through all
+# Y ahora use un "bucle" para recorrer todo
 # IDs:
 
 for id in $myIDS
 do
     mycounts=`bash count_baboons.sh ../data/Gesquiere2011_data.csv $id`
     echo "ID:" $id "counts:" $mycounts
-done 
+done
 
-# The file count_all_baboons.sh shows the complete
-# script:
+# El archivo count_all_baboons.sh muestra el completo script:
 
 bash count_all_baboons.sh
 
