@@ -32,4 +32,42 @@ GitHub
 
 # Explicación de la data utilizada:
 
+                           Ejercicio 1.10.2 Hormone Levels in Baboons. 
+                           
+
+Gesquiere et al. (2011), este ejercicio nos proporciono datos  donde se estudiaron los niveles
+
+hormonaleles  en la sangue de los babuinos , para ello cada individuo fue muestreado varias veces
+
+
+
+                          Ejercicio 1.10.1 Next Generation Sequencing Data. 
+                          
+
+En este ejercicio, trabajamos con datos de secuenciación de próxima generación (NGS) data.
+
+Unix es excelente para manipular los enormes archivos FASTA que se generan en NGS
+
+experimentos.
+
+Los archivos FASTA contienen datos de secuencia en formato de texto. Cada segmento de secuencia
+
+está precedido por una descripción de una sola línea. El primer carácter de la descripción.
+
+La línea es un signo de “mayor que” (>).
+
+El conjunto de datos NGS con el que trabajaremos fue publicado por Marra
+
+y DeWoody (2014), quienes investigaron el repertorio inmunogenético de
+
+roedores. Encontrará el archivo de secuencia Marra2014_data.fasta en la dirección
+
+tory CSB/unix/data. El archivo contiene segmentos de secuencia (contigs) de variable
+
+Talla. La descripción de cada contig proporciona su longitud, el número de lecturas
+
+que contribuyó al contig, su isogrupo (que representa la colección de
+
+productos de empalme alternativos de un posible gen) y el estado de isotig.
+
 
